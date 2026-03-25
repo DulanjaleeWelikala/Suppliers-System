@@ -1,0 +1,71 @@
+@import 'tailwindcss';
+@import '../../vendor/livewire/flux/dist/flux.css';
+
+@source "../views";
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../vendor/livewire/flux-pro/stubs/**/*.blade.php';
+@source '../../vendor/livewire/flux/stubs/**/*.blade.php';
+
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --color-accent: #6366f1; 
+    --color-accent-content: #ffffff;
+}
+
+@layer base {
+    /* මුළු body එකේම base font එක වැඩි කළා */
+    html {
+        font-size: 16px !important; 
+    }
+
+    body {
+        font-family: var(--font-sans);
+        -webkit-font-smoothing: antialiased;
+    }
+
+    [data-flux-sidebar] {
+        background-color: #08276a !important; 
+        border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+
+    /* 🚨 Sidebar එකේ අයිතම වල අකුරු කෙලින්ම Target කිරීම */
+    /* [data-flux-navlist-item] ඇතුළේ තියෙන text div එක target කරනවා */
+    [data-flux-navlist-item] {
+        --flux-font-size: 16px !important; /* Flux වල internal variable එක */
+        font-size: 16px !important; 
+        line-height: 1.5 !important;
+        font-weight: 500 !important;
+        color: #e2e8f0 !important; 
+        padding-top: 12px !important;
+        padding-bottom: 12px !important;
+    }
+
+    /* Sidebar Icons වල size එක අකුරු වලට ගැලපෙන්න ලොකු කළා */
+    [data-flux-navlist-item] svg {
+        width: 22px !important;
+        height: 22px !important;
+        margin-right: 12px !important;
+    }
+
+    /* Group Headings (Platform ආදිය) */
+    [data-flux-navlist-group-heading] {
+        font-size: 13px !important; 
+        color: #94a3b8 !important; 
+        font-weight: 700 !important;
+        margin-top: 20px !important;
+        margin-bottom: 10px !important;
+    }
+
+    [data-flux-navlist-item][data-current] {
+        background-color: #102c82 !important;
+        color: white !important;
+        font-weight: 600 !important;
+    }
+
+    html.dark body {
+        background-color: #020617 !important;
+    }
+}
